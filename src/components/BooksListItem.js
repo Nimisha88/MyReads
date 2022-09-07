@@ -18,8 +18,8 @@ const BooksListItem = ({ book, refreshLibrary }) => {
                     alt="Book's Icon"
                 />
             </div>
-            <h4 className="book-title">{book.title}</h4>
-            <h5 className="book-author">{book.authors[0]}</h5>
+            <h5 className="book-title">{book.title}</h5>
+            <h6 className="book-author">{book.authors[0]}</h6>
             <ChangeShelf book={book} refreshLibrary={refreshLibrary}/>
         </div>
     );

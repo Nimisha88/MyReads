@@ -18,7 +18,6 @@ const Library = () => {
     useEffect(() => {
         const getAllBooks = async () => {
             const res = await BooksAPI.getAll();
-            // console.log(res.map((book) => book.shelf));
             setAllBooks(res);
         };
 

@@ -23,13 +23,11 @@ const ChangeShelf = ({ book, refreshLibrary }) => {
     const handleChange = (event) => {
         event.preventDefault();
         setShelf(event.target.value);
-        console.log("New Shelf is " + shelf);
     }
 
     useEffect(() => {
         const updateBookShelf = async () => {
-            let res = await BooksAPI.update(book, shelf);
-            console.log(res);
+            await BooksAPI.update(book, shelf);
             refreshLibrary();
         }
         updateBookShelf();
