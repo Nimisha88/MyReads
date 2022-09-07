@@ -1,0 +1,32 @@
+.change-shelf {
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    display: flex;
+}
+.fa-icon-container {
+    background-color: blueviolet;
+    color: linen;
+    border-radius: 50%;
+}
+
+.fa-icon-plus {
+    padding: 0.4rem 0.5rem;
+    transform: scale(1.35);
+}
+
+.fa-icon-down {
+    padding: 0.5rem;
+    transform: scale(1.15);
+}
+
+.shelf-dd {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 2;
+    opacity: 0;
+}
