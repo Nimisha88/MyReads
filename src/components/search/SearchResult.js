@@ -9,7 +9,10 @@ const SearchResult = ({ query, books, refreshBook }) => {
 
     const isBookInUserList = (book) => {
         return books.filter(
-            (b) => b.title === book.title && b.subTitle === book.subTitle
+            (b) =>
+                b.title === book.title &&
+                b.authors.join() === book.authors.join() &&
+                b.imageLinks.smallThumbnail === book.imageLinks.smallThumbnail
         ).length
             ? true
             : false;
@@ -17,9 +20,12 @@ const SearchResult = ({ query, books, refreshBook }) => {
 
     const getBookFromUserList = (book) => {
         return books.filter(
-            (b) => b.title === book.title && b.subTitle === book.subTitle
+            (b) =>
+                b.title === book.title &&
+                b.authors.join() === book.authors.join() &&
+                b.imageLinks.smallThumbnail === book.imageLinks.smallThumbnail
         )[0];
-    }
+    };
 
     useEffect(() => {
         const fetchSearchResult = async (query, maxResult = 10) => {
@@ -76,7 +82,7 @@ const SearchResult = ({ query, books, refreshBook }) => {
 SearchResult.propTypes = {
     query: PropTypes.string,
     books: PropTypes.array,
-    refreshBook: PropTypes.func.isRequired
-}
+    refreshBook: PropTypes.func.isRequired,
+};
 
 export default SearchResult;
