@@ -3,7 +3,7 @@ import BookDisplayCard from "../BookDisplayCard.js";
 import * as BooksAPI from "../../utils/BooksAPI.js";
 import { useState, useEffect } from "react";
 
-const SearchResult = ({ query, books, refreshBooks }) => {
+const SearchResult = ({ query, books, refreshBook }) => {
     const [searchResult, setSearchResult] = useState([]);
 
     const isBookInUserList = (book) => {
@@ -56,14 +56,14 @@ const SearchResult = ({ query, books, refreshBooks }) => {
                             <BookDisplayCard
                                 key={index + 1}
                                 book={getBookFromUserList(book)}
-                                refreshBooks={refreshBooks}
+                                refreshBook={refreshBook}
                                 display="lib"
                             />
                         ) : (
                             <BookDisplayCard
                                 key={index + 1}
                                 book={book}
-                                refreshBooks={refreshBooks}
+                                refreshBook={refreshBook}
                                 display="search"
                             />
                         );

@@ -2,7 +2,7 @@ import "../styles/BookDisplayCard.css";
 import { useState, useEffect } from "react";
 import * as BooksAPI from "../utils/BooksAPI.js";
 
-const ChangeShelf = ({ book, refreshBooks, display }) => {
+const ChangeShelf = ({ book, refreshBook, display }) => {
 
     const shelfDDOptions = [
         {
@@ -38,7 +38,8 @@ const ChangeShelf = ({ book, refreshBooks, display }) => {
     useEffect(() => {
         const updateBookShelf = async () => {
             await BooksAPI.update(book, shelf);
-            refreshBooks();
+            book.shelf = shelf;
+            refreshBook(book);
         };
 
         if(updateBookList) {

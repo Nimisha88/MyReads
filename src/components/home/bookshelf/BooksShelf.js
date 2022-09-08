@@ -1,7 +1,7 @@
 import BooksList from "./BooksList";
 import "../../../styles/BooksShelf.css";
 
-const BooksShelf = ({ shelf, booksOnShelf, refreshBooks }) => {
+const BooksShelf = ({ shelf, booksOnShelf, refreshBook }) => {
 
     const getShelfName = (shelf) => {
         switch(shelf) {
@@ -16,7 +16,7 @@ const BooksShelf = ({ shelf, booksOnShelf, refreshBooks }) => {
         <div className="books-shelf">
             <h2 className="shelf-name">{getShelfName(shelf)}</h2>
             <hr size="1" color="#D3D3D3"/>
-            <BooksList booksOnShelf={booksOnShelf} refreshBooks={refreshBooks}/>
+            <BooksList booksOnShelf={booksOnShelf} refreshBook={refreshBook}/>
         </div>
     );
 }

@@ -4,7 +4,7 @@ import SearchResult from "./SearchResult";
 import Home from "./Home";
 import { useState } from "react";
 
-const SearchBook = ({ books, refreshBooks }) => {
+const SearchBook = ({ books, refreshBook }) => {
     
     const [searchText, setSearchText] = useState("");
 
@@ -15,7 +15,7 @@ const SearchBook = ({ books, refreshBooks }) => {
     return (
         <div className="search-container">
             <SearchBar searchText={searchText} onSearchTextChange={handleSearchTextChange}/>
-            <SearchResult query={searchText} books={books} refreshBooks={refreshBooks} />
+            <SearchResult query={searchText} books={books} refreshBook={refreshBook} />
             <Home />
         </div>
     );

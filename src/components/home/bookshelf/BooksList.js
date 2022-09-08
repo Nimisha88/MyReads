@@ -1,7 +1,7 @@
 import BookDisplayCard from "../../BookDisplayCard.js";
 import "../../../styles/BooksShelf.css";
 
-const BooksList = ({ booksOnShelf, refreshBooks }) => {
+const BooksList = ({ booksOnShelf, refreshBook }) => {
     return (
         <div className="books-list">
             {booksOnShelf.map((book, index) => {
@@ -9,7 +9,7 @@ const BooksList = ({ booksOnShelf, refreshBooks }) => {
                     <BookDisplayCard
                         key={index + 1}
                         book={book}
-                        refreshBooks={refreshBooks}
+                        refreshBook={refreshBook}
                         display="lib"
                     />
                 );

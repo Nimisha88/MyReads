@@ -1,6 +1,6 @@
 import BooksShelf from "./bookshelf/BooksShelf.js";
 
-const Library = ({ books, refreshBooks }) => {
+const Library = ({ books, refreshBook }) => {
     const shelves = ["currentlyReading", "wantToRead", "read"];
 
     const getShelfBooksByCategory = (shelf) =>
@@ -14,7 +14,7 @@ const Library = ({ books, refreshBooks }) => {
                         key={index + 1}
                         shelf={shelfType}
                         booksOnShelf={getShelfBooksByCategory(shelfType)}
-                        refreshBooks={refreshBooks}
+                        refreshBook={refreshBook}
                     />
                 );
             })}

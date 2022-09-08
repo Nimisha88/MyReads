@@ -9,10 +9,24 @@ import { Route, Routes } from "react-router-dom";
 
 const App = () => {
     const [allBooks, setAllBooks] = useState([]);
-    const [refreshAllBooks, setRefreshAllBooks] = useState(true);
 
-    const requestBooksRefresh = () => {
-        setRefreshAllBooks(true);
+    const requestBookRefresh = (book) => {
+        book.shelf==="none" ?
+        setAllBooks(
+            [...allBooks.filter(
+                (b) =>
+                    b.title !== book.title &&
+                    b.authors.join() !== book.authors.join()
+            )]
+        ) :
+        setAllBooks(
+            [...allBooks.filter(
+                (b) =>
+                    b.title !== book.title &&
+                    b.authors.join() !== book.authors.join()
+            ),
+            book]
+        );
     };
 
     useEffect(() => {
@@ -21,11 +35,8 @@ const App = () => {
             setAllBooks(res);
         };
 
-        if (refreshAllBooks) {
-            getAllBooks();
-            setRefreshAllBooks(false);
-        }
-    }, [refreshAllBooks]);
+        getAllBooks();
+    }, []);
 
     return (
         <Routes>
@@ -37,7 +48,7 @@ const App = () => {
                         <Hero />
                         <Library
                             books={allBooks}
-                            refreshBooks={requestBooksRefresh}
+                            refreshBook={requestBookRefresh}
                         />
                         <AddBook />
                     </Fragment>
@@ -49,13 +60,13 @@ const App = () => {
                     <Fragment>
                         <SearchBook
                             books={allBooks}
-                            refreshBooks={requestBooksRefresh}
+                            refreshBook={requestBookRefresh}
                         />
                     </Fragment>
                 }
             />
         </Routes>
     );
-}
+};
 
 export default App;
