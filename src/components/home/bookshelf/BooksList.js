@@ -1,16 +1,21 @@
-import BooksListItem from "./BooksListItem.js";
-import "../../../styles/BooksShelf.css"
+import BookDisplayCard from "../../BookDisplayCard.js";
+import "../../../styles/BooksShelf.css";
 
-const BooksList = ({ booksOnShelf, refreshLibrary }) => {
-    return(
+const BooksList = ({ booksOnShelf, refreshBooks }) => {
+    return (
         <div className="books-list">
-            {
-                booksOnShelf.map((book, index) => {
-                    return <BooksListItem key={index+1} book={book} refreshLibrary={refreshLibrary} />
-                })
-            }
+            {booksOnShelf.map((book, index) => {
+                return (
+                    <BookDisplayCard
+                        key={index + 1}
+                        book={book}
+                        refreshBooks={refreshBooks}
+                        display="lib"
+                    />
+                );
+            })}
         </div>
     );
-}
+};
 
 export default BooksList;

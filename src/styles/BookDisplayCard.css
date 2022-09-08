@@ -66,6 +66,11 @@
     transform: scale(1.15);
 }
 
+.fa-icon-plus {
+    padding: 0.45rem 0.6rem;
+    transform: scale(1.15);
+}
+
 .shelf-dd {
     position: absolute;
     right: 0;
@@ -73,6 +78,5 @@
     top: 0;
     left: 0;
     display: flex;
-    z-index: 2;
     opacity: 0;
 }

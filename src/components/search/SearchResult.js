@@ -1,38 +1,75 @@
 import "../../styles/SearchBook.css";
-import BooksListItem from "../home/bookshelf/BooksListItem";
+import BookDisplayCard from "../BookDisplayCard.js";
 import * as BooksAPI from "../../utils/BooksAPI.js";
 import { useState, useEffect } from "react";
 
-const SearchResult = ({ query }) => {
-
+const SearchResult = ({ query, books, refreshBooks }) => {
     const [searchResult, setSearchResult] = useState([]);
+
+    const isBookInUserList = (book) => {
+        return books.filter(
+            (b) => b.title === book.title && b.subTitle === book.subTitle
+        ).length
+            ? true
+            : false;
+    };
+
+    const getBookFromUserList = (book) => {
+        return books.filter(
+            (b) => b.title === book.title && b.subTitle === book.subTitle
+        )[0];
+    }
 
     useEffect(() => {
         const fetchSearchResult = async (query, maxResult = 10) => {
-            console.log(query);
             let res = await BooksAPI.search(query, maxResult);
-            console.log(res);
-            setSearchResult(res);
+            if (!res.error) {
+                setSearchResult(res);
+            } else {
+                setSearchResult([]);
+            }
         };
-        
+
         if (query.trim().length) {
-            fetchSearchResult(query, 15);
+            fetchSearchResult(query.trim(), 50);
+        } else {
+            setSearchResult([]);
         }
     }, [query]);
 
-    const refreshLibrary = () => {
-        console.log("Arrgggg!! You gotta do something about this!");
-    }
-
     return (
         <div className="search-result">
-            {
-                searchResult.filter((book) => (book.title!==undefined && book.authors!==undefined && book.authors.length>0 && book.imageLinks!==undefined) && Object.keys(book.imageLinks).includes("smallThumbnail"))
+            {searchResult &&
+                searchResult
+                    .filter(
+                        (book) =>
+                            book.title !== undefined &&
+                            book.authors !== undefined &&
+                            book.authors.length > 0 &&
+                            book.imageLinks !== undefined &&
+                            Object.keys(book.imageLinks).includes(
+                                "smallThumbnail"
+                            )
+                    )
                     .map((book, index) => {
-                    return <BooksListItem key={index+1} book={book} refreshLibrary={refreshLibrary}/>
-                    // console.log(book.title + " - " + Object.keys(book.imageLinks));
-                })
-            }
+                        return isBookInUserList(book) ? (
+                            <BookDisplayCard
+                                key={index + 1}
+                                book={getBookFromUserList(book)}
+                                refreshBooks={refreshBooks}
+                                display="lib"
+                            />
+                        ) : (
+                            <BookDisplayCard
+                                key={index + 1}
+                                book={book}
+                                refreshBooks={refreshBooks}
+                                display="search"
+                            />
+                        );
+
+                        // console.log(book.title + " " + book.shelf);
+                    })}
         </div>
     );
 };
