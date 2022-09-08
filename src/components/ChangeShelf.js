@@ -1,6 +1,7 @@
 import "../styles/BookDisplayCard.css";
 import { useState, useEffect } from "react";
 import * as BooksAPI from "../utils/BooksAPI.js";
+import PropTypes from "prop-types";
 
 const ChangeShelf = ({ book, refreshBook, display }) => {
 
@@ -79,5 +80,11 @@ const ChangeShelf = ({ book, refreshBook, display }) => {
         </div>
     );
 };
+
+ChangeShelf.propTypes = {
+    book: PropTypes.object.isRequired,
+    refreshBook: PropTypes.func.isRequired,
+    display: PropTypes.string.isRequired,
+}
 
 export default ChangeShelf;

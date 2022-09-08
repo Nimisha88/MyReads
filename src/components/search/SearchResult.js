@@ -2,6 +2,7 @@ import "../../styles/SearchBook.css";
 import BookDisplayCard from "../BookDisplayCard.js";
 import * as BooksAPI from "../../utils/BooksAPI.js";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 const SearchResult = ({ query, books, refreshBook }) => {
     const [searchResult, setSearchResult] = useState([]);
@@ -71,5 +72,11 @@ const SearchResult = ({ query, books, refreshBook }) => {
         </div>
     );
 };
+
+SearchResult.propTypes = {
+    query: PropTypes.string,
+    books: PropTypes.array,
+    refreshBook: PropTypes.func.isRequired
+}
 
 export default SearchResult;

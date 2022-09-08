@@ -1,4 +1,5 @@
 import BooksShelf from "./bookshelf/BooksShelf.js";
+import PropTypes from "prop-types";
 
 const Library = ({ books, refreshBook }) => {
     const shelves = ["currentlyReading", "wantToRead", "read"];
@@ -21,5 +22,10 @@ const Library = ({ books, refreshBook }) => {
         </div>
     );
 };
+
+Library.propTypes = {
+    books: PropTypes.array.isRequired,
+    refreshBook: PropTypes.func.isRequired
+}
 
 export default Library;

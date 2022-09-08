@@ -1,5 +1,6 @@
 import BookDisplayCard from "../../BookDisplayCard.js";
 import "../../../styles/BooksShelf.css";
+import PropTypes from "prop-types";
 
 const BooksList = ({ booksOnShelf, refreshBook }) => {
     return (
@@ -17,5 +18,10 @@ const BooksList = ({ booksOnShelf, refreshBook }) => {
         </div>
     );
 };
+
+BooksList.propTypes = {
+    booksOnShelf: PropTypes.array,
+    refreshBook: PropTypes.func.isRequired
+}
 
 export default BooksList;

@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import SearchResult from "./SearchResult";
 import Home from "./Home";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const SearchBook = ({ books, refreshBook }) => {
     
@@ -20,5 +21,10 @@ const SearchBook = ({ books, refreshBook }) => {
         </div>
     );
 };
+
+SearchBook.propTypes = {
+    books: PropTypes.array,
+    refreshBook: PropTypes.func.isRequired
+}
 
 export default SearchBook;

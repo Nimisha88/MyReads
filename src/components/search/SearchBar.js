@@ -1,5 +1,5 @@
 import "../../styles/SearchBook.css";
-import { useState } from "react";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ searchText, onSearchTextChange }) => {
@@ -30,5 +30,10 @@ const SearchBar = ({ searchText, onSearchTextChange }) => {
         </div>
     );
 };
+
+SearchBar.propTypes = {
+    searchText: PropTypes.string.isRequired, 
+    onSearchTextChange: PropTypes.func.isRequired
+}
 
 export default SearchBar;

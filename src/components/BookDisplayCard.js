@@ -1,5 +1,6 @@
 import "../styles/BookDisplayCard.css";
 import ChangeShelf from "./ChangeShelf";
+import PropTypes from "prop-types";
 
 const BookDisplayCard = ({ book, refreshBook, display }) => {
     return (
@@ -15,5 +16,11 @@ const BookDisplayCard = ({ book, refreshBook, display }) => {
         </div>
     );
 };
+
+BookDisplayCard.propTypes = {
+    book: PropTypes.object.isRequired,
+    refreshBook: PropTypes.func.isRequired,
+    display: PropTypes.string.isRequired,
+}
 
 export default BookDisplayCard;
