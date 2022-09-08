@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# React Bookshelf App: My Reads
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My Reads is a bookshelf app that allows user to select and categorize books user has read, are currently reading, or wants to read. The project emphasizes using React to build the application and using API to persist information as user interacts with the application.
 
-## Available Scripts
+## Project Preview
 
-In the project directory, you can run:
+## Software, Firmware and Hardware:
+* HTML, CSS, JavaScript
+* React - Hook and Router
+* [Create React App](https://github.com/facebook/create-react-app)
+
+## Installation
+
+Download/clone the project. `cd` to the project directory, then run:
+
+### `npm install`
+
+Installs the project dependencies.
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The page will reload automatically when you make changes.
 
-### `npm test`
+## Folder Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* main
+  * README.md - Read me file
+  * .gitignore - Files that were ignored in commit
+  * package.json - Contains list of installable dependencies needed to run the application locally
+  * src/index.js - Creating root and rendering App component
+  * src/assets - Contains image files
+  * src/components - Contains React Components
+  * src/styles - Contains style sheets
+  * src/utils - Contains API file
+  * public/index.html - HTML file
 
-### `npm run build`
+## Copyright
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application is designed and developed by Nimisha Viraj as a part of [Udacity React Nanodegree](https://www.udacity.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Acknowledgements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [Udacity](https://udacity.com) - Source of application requirements
+* [Unsplash](https://unsplash.com/) - For Hero Image
+* [FontAwesome](https://fontawesome.com/) - Source of Icons
+* [GoogleFonts](https://fonts.google.com/) - Source of fonts
+* [Stackoverflow](https://stackoverflow.com/) - Source of resolutions to coding errors and roadblocks
 
-### `npm run eject`
+## Limitation and Scope
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Application filters outs any search result which are missing either one or more of the following details:
+  * Title
+  * Author
+  * Thumbnail
+* Application can be expanded to implement drag and drop feature to change book's shelf
