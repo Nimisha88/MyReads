@@ -2,12 +2,6 @@ import "../styles/BookDisplayCard.css";
 import ChangeShelf from "./ChangeShelf";
 
 const BookDisplayCard = ({ book, refreshBooks, display }) => {
-
-    if (display==="lib") {
-        console.log("Display: " + display);
-        console.log("book: " + book.title + " " + book.shelf);
-    }
-    
     return (
         <div className="item">
             <div className="book-icon-container" style={{

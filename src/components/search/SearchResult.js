@@ -67,8 +67,6 @@ const SearchResult = ({ query, books, refreshBooks }) => {
                                 display="search"
                             />
                         );
-
-                        // console.log(book.title + " " + book.shelf);
                     })}
         </div>
     );

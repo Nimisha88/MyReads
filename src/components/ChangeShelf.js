@@ -37,7 +37,6 @@ const ChangeShelf = ({ book, refreshBooks, display }) => {
 
     useEffect(() => {
         const updateBookShelf = async () => {
-            console.log(`Updating ${book.title} to shelf ${shelf}`);
             await BooksAPI.update(book, shelf);
             refreshBooks();
         };
