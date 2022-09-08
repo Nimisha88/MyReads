@@ -1,5 +1,5 @@
 import BooksList from "./BooksList";
-import "../styles/BooksShelf.css";
+import "../../../styles/BooksShelf.css";
 
 const BooksShelf = ({ shelf, booksOnShelf, refreshLibrary }) => {
 

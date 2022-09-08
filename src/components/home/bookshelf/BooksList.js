@@ -1,5 +1,5 @@
 import BooksListItem from "./BooksListItem.js";
-import "../styles/BooksList.css"
+import "../../../styles/BooksShelf.css"
 
 const BooksList = ({ booksOnShelf, refreshLibrary }) => {
     return(

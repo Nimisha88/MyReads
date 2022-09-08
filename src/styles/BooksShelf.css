@@ -1,6 +1,19 @@
+/* Book Shelf */
+
 .books-shelf {
     margin: 2rem 3rem;
     padding: 1.5rem 1rem;
     border-radius: 10px;
     box-shadow: 5px 5px 20px #999;
+}
+
+/* Books List */
+
+.books-list {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    margin: 2rem auto;
+    overflow: scroll-x;
 }

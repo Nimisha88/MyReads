@@ -1,5 +1,5 @@
-import BooksShelf from "./BooksShelf.js";
-import * as BooksAPI from "../utils/BooksAPI.js";
+import BooksShelf from "./bookshelf/BooksShelf.js";
+import * as BooksAPI from "../../utils/BooksAPI.js";
 import { useState, useEffect } from "react";
 
 const shelves = ["currentlyReading", "wantToRead", "read"];

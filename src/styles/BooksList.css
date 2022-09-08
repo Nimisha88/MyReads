@@ -1,8 +1,0 @@
-.books-list {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    margin: 2rem auto;
-    overflow: scroll-x;
-}

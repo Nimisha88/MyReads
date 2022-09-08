@@ -1,9 +1,7 @@
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-}
+/* Book List Item */
 
 .item {
-    margin: 0.5rem 1.5rem;
+    margin: 1rem 1.5rem;
     position: relative;
     width: 9.5rem;
     display: flex;
@@ -47,4 +45,34 @@ h1, h2, h3, h4, h5, h6 {
 .book-author {
     padding: 0.5rem;
     color:#999;
+}
+
+/* Change Shelf */
+
+.change-shelf {
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    display: flex;
+}
+.fa-icon-container {
+    background-color:  #644E;
+    color: linen;
+    border-radius: 50%;
+}
+
+.fa-icon-down {
+    padding: 0.5rem;
+    transform: scale(1.15);
+}
+
+.shelf-dd {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 2;
+    opacity: 0;
 }
