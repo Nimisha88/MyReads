@@ -11,11 +11,26 @@ input:focus {
     box-shadow: 5px 5px 20px #999;
 }
 
+.left-icon-wrapper {
+    position: relative;
+}
+
 .fa-icon-left {
     padding: 1rem  1.5vw;
     font-size: 4vh;
     width: 2vw;
     color: #7a7a7a;
+}
+
+.left-link {
+    background-color: blueviolet;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
 }
 
 .search-text {

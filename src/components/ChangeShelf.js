@@ -1,10 +1,8 @@
 import "../styles/BookDisplayCard.css";
-import { useState, useEffect } from "react";
-import * as BooksAPI from "../utils/BooksAPI.js";
+
 import PropTypes from "prop-types";
 
-const ChangeShelf = ({ book, refreshBook, display }) => {
-
+const ChangeShelf = ({ shelf, onShelfChange, display }) => {
     const shelfDDOptions = [
         {
             shelf: "currentlyReading",
@@ -20,45 +18,24 @@ const ChangeShelf = ({ book, refreshBook, display }) => {
         },
         {
             shelf: "none",
-            shelfName: "None"
-        }
+            shelfName: "None",
+        },
     ];
-
-    const [shelf, setShelf] = useState(() => {
-        return book.shelf===undefined? "none" : book.shelf;
-    });
-
-    const [updateBookList, setUpdateBookList] = useState(false);
 
     const handleChange = (event) => {
         event.preventDefault();
-        setShelf(event.target.value);
-        setUpdateBookList(true);
+        onShelfChange(event.target.value);
     };
-
-    useEffect(() => {
-        const updateBookShelf = async () => {
-            await BooksAPI.update(book, shelf);
-            book.shelf = shelf;
-            refreshBook(book);
-        };
-
-        if(updateBookList) {
-            updateBookShelf();
-            setUpdateBookList(false);
-        }
-        
-    }, [updateBookList]);
 
     return (
         <div className="change-shelf">
             <div className="fa-icon-container">
-                {
-                    display==="lib" && <i className="fa-icon-down fa-solid fa-chevron-down"></i>
-                }
-                {
-                    display==="search" && <i className="fa-icon-plus fa-regular fa-plus"></i>
-                }
+                {(display === "lib" || display === "search-lib") && (
+                    <i className="fa-icon-down fa-solid fa-chevron-down"></i>
+                )}
+                {display === "search" && (
+                    <i className="fa-icon-plus fa-regular fa-plus"></i>
+                )}
             </div>
             <select
                 id="shelf-dd"
@@ -82,9 +59,9 @@ const ChangeShelf = ({ book, refreshBook, display }) => {
 };
 
 ChangeShelf.propTypes = {
-    book: PropTypes.object.isRequired,
-    refreshBook: PropTypes.func.isRequired,
+    shelf: PropTypes.string.isRequired,
+    onShelfChange: PropTypes.func.isRequired,
     display: PropTypes.string.isRequired,
-}
+};
 
 export default ChangeShelf;

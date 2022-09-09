@@ -1,5 +1,7 @@
 import "../../styles/SearchBook.css";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ searchText, onSearchTextChange }) => {
@@ -18,7 +20,10 @@ const SearchBar = ({ searchText, onSearchTextChange }) => {
 
     return (
         <div className="search-bar">
-            <i className="fa-icon-left fa-solid fa-left-long" onClick={handleClick}></i>
+            <div className="left-icon-wrapper">
+                <i className="fa-icon-left fa-solid fa-left-long" onClick={handleClick}></i>
+                <Link className="left-link" to="/"></Link>
+            </div>
             <input
                 value={searchText}
                 className="search-text"

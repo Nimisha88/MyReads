@@ -1,11 +1,22 @@
 import "../../styles/SearchBook.css";
 import BookDisplayCard from "../BookDisplayCard.js";
 import * as BooksAPI from "../../utils/BooksAPI.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import PropTypes from "prop-types";
 
 const SearchResult = ({ query, books, refreshBook }) => {
+    const [debouncedQuery, setDebouncedQuery] = useState(query);
     const [searchResult, setSearchResult] = useState([]);
+
+    useEffect(() => {
+        // Update debounced value after delay
+        const handler = setTimeout(() => {
+            setDebouncedQuery(query);
+        }, 250);
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [query]);
 
     const isBookInUserList = (book) => {
         return books.filter(
@@ -30,19 +41,29 @@ const SearchResult = ({ query, books, refreshBook }) => {
     useEffect(() => {
         const fetchSearchResult = async (query, maxResult = 10) => {
             let res = await BooksAPI.search(query, maxResult);
-            if (!res.error) {
-                setSearchResult(res);
-            } else {
-                setSearchResult([]);
-            }
+            return res;
         };
 
-        if (query.trim().length) {
-            fetchSearchResult(query.trim(), 50);
-        } else {
-            setSearchResult([]);
-        }
-    }, [query]);
+        const getBooksFromUserListAsWell = (result) => {
+            let searchBooksInUserList = result
+                .filter((book) => isBookInUserList(book) === true)
+                .map((book) => getBookFromUserList(book));
+            let searchBooksNotInUserList = result.filter(
+                (book) => isBookInUserList(book) === false
+            );
+            return [...searchBooksInUserList, ...searchBooksNotInUserList];
+        };
+
+        debouncedQuery.trim().length
+            ? fetchSearchResult(debouncedQuery.trim(), 50).then(
+                  (data) => {
+                      !data.error
+                          ? setSearchResult(getBooksFromUserListAsWell(data))
+                          : setSearchResult([]);
+                  }
+              )
+            : setSearchResult([]);
+    }, [debouncedQuery]);
 
     return (
         <div className="search-result">
@@ -62,9 +83,9 @@ const SearchResult = ({ query, books, refreshBook }) => {
                         return isBookInUserList(book) ? (
                             <BookDisplayCard
                                 key={index + 1}
-                                book={getBookFromUserList(book)}
+                                book={book}
                                 refreshBook={refreshBook}
-                                display="lib"
+                                display="search-lib"
                             />
                         ) : (
                             <BookDisplayCard

@@ -6,17 +6,22 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const SearchBook = ({ books, refreshBook }) => {
-    
     const [searchText, setSearchText] = useState("");
 
     const handleSearchTextChange = (newSearchText) => {
         setSearchText(newSearchText);
     };
-
     return (
         <div className="search-container">
-            <SearchBar searchText={searchText} onSearchTextChange={handleSearchTextChange}/>
-            <SearchResult query={searchText} books={books} refreshBook={refreshBook} />
+            <SearchBar
+                searchText={searchText}
+                onSearchTextChange={handleSearchTextChange}
+            />
+            <SearchResult
+                query={searchText}
+                books={books}
+                refreshBook={refreshBook}
+            />
             <Home />
         </div>
     );
@@ -24,7 +29,7 @@ const SearchBook = ({ books, refreshBook }) => {
 
 SearchBook.propTypes = {
     books: PropTypes.array,
-    refreshBook: PropTypes.func.isRequired
-}
+    refreshBook: PropTypes.func.isRequired,
+};
 
 export default SearchBook;
