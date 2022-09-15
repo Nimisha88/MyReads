@@ -2,9 +2,18 @@
 
 My Reads is a bookshelf app that allows user to select and categorize books user has read, are currently reading, or wants to read. The project emphasizes using React to build the application and using API to persist information as user interacts with the application.
 
-## Project Preview
+## Application Preview
+
+### Book Shelf Preview
+
+https://user-images.githubusercontent.com/29170466/190378850-76312328-6d5e-4905-ac35-0cfeaad254b6.mov
+
+### Book Search Preview
+
+https://user-images.githubusercontent.com/29170466/190378877-763a46b3-50d6-4d4f-9ab3-5e5350e388cb.mov
 
 ## Software, Firmware and Hardware:
+
 * HTML, CSS, JavaScript
 * React - Hook and Router
 * [Create React App](https://github.com/facebook/create-react-app)
